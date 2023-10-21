@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//sıklıkla kullanacagimiz renk kodlari
 const Color primaryColor = Color(0xFF53F9FF);
 const Color redColor = Color(0xFFFF5368);
 

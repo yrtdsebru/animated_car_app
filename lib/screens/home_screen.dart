@@ -33,17 +33,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late Animation<double> _animationCoolGlow;
 
   late AnimationController _tyreAnimationController;
-  // We want to animate each tyre one by one
+ // Her lastiği tek tek animasyonlastirmak istiyoruz
   late Animation<double> _animationTyre1Psi;
   late Animation<double> _animationTyre2Psi;
   late Animation<double> _animationTyre3Psi;
   late Animation<double> _animationTyre4Psi;
 
   late List<Animation<double>> _tyreAnimations;
-
-  // Great Job guys
-  // We are done with our animation serise
-  // Thank You!
 
   void setupBatteryAnimation() {
     _batteryAnimationController = AnimationController(
@@ -53,16 +49,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
     _animationBattery = CurvedAnimation(
       parent: _batteryAnimationController,
-      // Here the animation end on 0.5
-      // it ends on 300 milliseconds
+      // Burada animasyon 0,5'te bitiyor
+      // 300 milisaniyede bitiyor
       curve: Interval(0.0, 0.5),
     );
 
     _animationBatteryStatus = CurvedAnimation(
       parent: _batteryAnimationController,
-      // After a delay we start this animation
-      // after 60 milliseconds delay it start
-      // so it start at 360 and end on 600 milliseconds
+      // Bir gecikmeden sonra bu animasyonu başlatıyoruz
+      // 60 milisaniye gecikmeden sonra başlıyor
+      // yani 360'ta başlayıp 600 milisaniyede bitiyor
       curve: Interval(0.6, 1),
     );
   }
@@ -163,12 +159,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   return Stack(
                     alignment: Alignment.center,
                     children: [
-                      // Let's fixed it
                       SizedBox(
                         height: constrains.maxHeight,
                         width: constrains.maxWidth,
                       ),
-                      // Nothing really chnage, let's fix that
                       Positioned(
                         left:
                             constrains.maxWidth / 2 * _animationCarShift.value,
@@ -183,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           ),
                         ),
                       ),
-                      // Door Locks
+                      //Kapı kilitleri
                       AnimatedPositioned(
                         duration: defaultDuration,
                         right: _controller.selectedBottomTab == 0
@@ -241,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
 
-                      // Battery
+                      //Pil
                       Opacity(
                         opacity: _animationBattery.value,
                         child: SvgPicture.asset(
@@ -249,7 +243,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           width: constrains.maxWidth * 0.45,
                         ),
                       ),
-
                       Positioned(
                         top: 50 * (1 - _animationBatteryStatus.value),
                         height: constrains.maxHeight,
@@ -259,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           child: BatteryStatus(constrains: constrains),
                         ),
                       ),
-                      // Temp
+                      // Sıcaklık
                       Positioned(
                         height: constrains.maxHeight,
                         width: constrains.maxWidth,
@@ -269,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           child: TempDetails(controller: _controller),
                         ),
                       ),
-                      // We also need to animate the glow
+                      //Işıgın animasyonu
                       Positioned(
                         right: -180 * (1 - _animationCoolGlow.value),
                         child: AnimatedSwitcher(
@@ -288,10 +281,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
 
-                      // Tyre
+                      // Lastikler
                       if (_controller.isShowTyre) ...tyres(constrains),
                       if (_controller.isShowTyreStatus)
-                        // Let's add the animation
+                        //Animasyon ekleyelim.
 
                         GridView.builder(
                           itemCount: 4,

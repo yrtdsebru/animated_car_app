@@ -4,7 +4,6 @@ import '../../constanins.dart';
 import '../../home_controller.dart';
 import 'tmp_btn.dart';
 
-// This is what we want
 class TempDetails extends StatelessWidget {
   const TempDetails({
     Key? key,

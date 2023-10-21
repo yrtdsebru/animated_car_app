@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:tesla_animated_app/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp());  //progmram once buradan calismaya baslar. runApp calisir. runApp MyApp'i cagirmis.
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tesla Animated App',
-      debugShowCheckedModeBanner: false,
+      title: 'Animated App',
+      debugShowCheckedModeBanner: false,  //banner'i kaldir.
       theme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: HomeScreen(),
+      home: HomeScreen(), 
     );
   }
 }
